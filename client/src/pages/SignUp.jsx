@@ -27,84 +27,85 @@ export default function Signup(){
     }
     return (
         <>
-          <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-lg">
-              <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-                Create an Account
-              </h2>
-    
-              <form onSubmit={onSignUp} className="space-y-6">
-               
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-gray-700 text-lg mb-2"
-                  >
-                    Full Name
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    value={username}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full p-4 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-    
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-gray-700 text-lg mb-2"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full p-4 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter your email"
-                  />
-                </div>
-    
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block text-gray-700 text-lg mb-2"
-                  >
-                    Password
-                  </label>
-                  <input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full p-4 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter your password"
-                  />
-                </div>
-    
-                <button
-                  type="submit"
-                  className="w-full py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 transform hover:scale-105"
-                >
-                  Sign Up
-                </button>
-              </form>
-    
-              <p className="text-center text-gray-600 mt-4">
-                Already have an account?{" "}
-                <span
-                  onClick={() => navigate("/login")}
-                  className="text-blue-600 cursor-pointer hover:underline"
-                >
-                  Login
-                </span>
-              </p>
-            </div>
+          <div className="flex flex-col md:flex-row min-h-screen">
+      <div className="flex flex-col w-full md:w-1/2 text-white p-8 items-center justify-center bg-blue-600">
+        <h1 className="text-4xl font-bold mb-4 text-center">Welcome to PlatesForAll</h1>
+        <p className="text-2xl text-center">
+          Join us to help needy people and build a Prosperous Soceity. Register now to get started!
+        </p>
+        <br />
+        <button 
+          className="bg-white text-blue-600 px-6 py-3 rounded-md mt-4 md:mt-0" 
+          onClick={() => navigate("/Login")}
+        >
+          Login
+        </button>
+      </div>
+
+      <div className="bg-white flex flex-col justify-center items-center w-full md:w-1/2 p-8">
+        <h1 className="font-bold text-3xl mb-4">User Registration</h1>
+
+        <form className="w-full max-w-md" onSubmit={onSignUp}>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+              Name
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="name"
+              type="text"
+              placeholder="Your Name"
+              value={username}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
           </div>
+
+          
+
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="email"
+              type="email"
+              placeholder="Enter Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          
+
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+              Password
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              placeholder="Enter Your Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="flex items-center justify-between">
+            <button
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
         </>
       );
 }
